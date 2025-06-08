@@ -121,8 +121,8 @@
                                         class="fa fa-fw fa-building"></i> Fasilitas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="schedulesLink" href="jadwal.php"><i
-                                        class="fa fa-fw fa-calendar"></i> Jadwal</a>
+                                <a class="nav-link" id="schedulesLink" href="jadwal-kelas.php"><i
+                                        class="fa fa-fw fa-calendar"></i> Jadwal Kelas</a>
                             </li>
                         </ul>
                     </div>
