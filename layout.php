@@ -90,7 +90,11 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="packagesLink" href="paket.php"><i
-                                        class="fa fa-fw fa-box"></i> Paket Keanggotaan</a>
+                                        class="fa fa-fw fa-box"></i> Paket</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="packagesLink" href="keanggotaan.php"><i
+                                        class="fa fa-fw fa-box"></i> Keanggotaan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="paymentsLink" href="data-master-payments.php"><i

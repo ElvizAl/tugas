@@ -1,7 +1,7 @@
 <?php
 // Koneksi ke database
 $host = 'localhost';
-$dbname = 'kontol'; // Ganti dengan nama database Anda
+$dbname = 'coeg'; // Ganti dengan nama database Anda
 $username = 'root';
 $password = ''; // Ganti dengan password jika diperlukan
 
