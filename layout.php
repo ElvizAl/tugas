@@ -98,11 +98,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="paymentsLink" href="pembayaran.php"><i
-                                        class="fa fa-fw fa-credit-card"></i> Pembayaran Paket</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="paymentsLink" href="pembayaran-kelas.php"><i
-                                        class="fa fa-fw fa-credit-card"></i> Pembayaran kelas</a>
+                                        class="fa fa-fw fa-credit-card"></i> Pembayaran</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="classesLink" href="kelas.php"><i
