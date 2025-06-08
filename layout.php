@@ -97,7 +97,7 @@
                                         class="fa fa-fw fa-box"></i> Keanggotaan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="paymentsLink" href="data-master-payments.php"><i
+                                <a class="nav-link" id="paymentsLink" href="pembayaran.php"><i
                                         class="fa fa-fw fa-credit-card"></i> Pembayaran</a>
                             </li>
                             <li class="nav-item">

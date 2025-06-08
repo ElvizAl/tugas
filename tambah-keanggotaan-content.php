@@ -1,5 +1,5 @@
 <?php
-include 'db/koneksi.php'; // Menyertakan koneksi database
+include 'db/koneksi.php'; // Koneksi ke database
 
 // Mendapatkan daftar paket keanggotaan untuk form dropdown
 $query_paket = "SELECT * FROM paket_keanggotaan WHERE status_paket = 'Aktif'";
@@ -11,12 +11,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_anggota = $_POST['id_anggota'];
     $id_paket = $_POST['id_paket'];
     $tanggal_mulai = $_POST['tanggal_mulai'];
+    $metode_pembayaran = $_POST['metode_pembayaran'];
 
     // Menyimpan keanggotaan baru
     $query = "INSERT INTO keanggotaan (id_anggota, id_paket, tanggal_mulai, tanggal_berakhir, status_keanggotaan, created_at)
               VALUES (?, ?, ?, CURDATE(), 'Aktif', NOW())";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$id_anggota, $id_paket, $tanggal_mulai]);
+
+    // Ambil harga paket
+    $sql_paket = "SELECT harga FROM paket_keanggotaan WHERE id_paket = ?";
+    $stmt_paket = $pdo->prepare($sql_paket);
+    $stmt_paket->execute([$id_paket]);
+    $harga_paket = $stmt_paket->fetchColumn();
+
+    // Insert data pembayaran dengan status 'Pending'
+    $sql_pembayaran = "INSERT INTO pembayaran (id_keanggotaan, jumlah_bayar, tanggal_bayar, metode_pembayaran, status_pembayaran) 
+                       VALUES (LAST_INSERT_ID(), ?, CURDATE(), ?, 'Pending')";
+    $stmt_pembayaran = $pdo->prepare($sql_pembayaran);
+    $stmt_pembayaran->execute([$harga_paket, $metode_pembayaran]);
 
     // Redirect ke halaman keanggotaan setelah menambah
     header("Location: keanggotaan.php");
@@ -64,6 +77,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="tanggal_mulai">Tanggal Mulai</label>
                     <input type="date" class="form-control" name="tanggal_mulai" required>
+                </div>
+                <div class="form-group">
+                    <label for="metode_pembayaran">Metode Pembayaran</label>
+                    <select class="form-control" name="metode_pembayaran" required>
+                        <option value="Transfer Bank">Transfer Bank</option>
+                        <option value="Tunai">Tunai</option>
+                        <option value="Kartu Kredit">Kartu Kredit</option>
+                        <option value="Kartu Debit">Kartu Debit</option>
+                        <option value="E-Wallet">E-Wallet</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah Keanggotaan</button>
             </form>
