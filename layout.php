@@ -89,7 +89,7 @@
                                         class="fa fa-fw fa-users"></i> Anggota</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="packagesLink" href="data-master-packages.php"><i
+                                <a class="nav-link" id="packagesLink" href="paket.php"><i
                                         class="fa fa-fw fa-box"></i> Paket Keanggotaan</a>
                             </li>
                             <li class="nav-item">
