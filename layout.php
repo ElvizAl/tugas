@@ -94,26 +94,34 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="packagesLink" href="keanggotaan.php"><i
-                                        class="fa fa-fw fa-box"></i> Keanggotaan</a>
+                                        class="fa fa-fw fa-box"></i> Daftar Keanggotaan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="paymentsLink" href="pembayaran.php"><i
-                                        class="fa fa-fw fa-credit-card"></i> Pembayaran</a>
+                                        class="fa fa-fw fa-credit-card"></i> Pembayaran Paket</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="classesLink" href="data-master-classes.php"><i
+                                <a class="nav-link" id="paymentsLink" href="pembayaran-kelas.php"><i
+                                        class="fa fa-fw fa-credit-card"></i> Pembayaran kelas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="classesLink" href="kelas.php"><i
                                         class="fa fa-fw fa-chalkboard"></i> Kelas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="trainersLink" href="data-master-trainers.php"><i
+                                <a class="nav-link" id="classesLink" href="daftar-kelas.php"><i
+                                        class="fa fa-fw fa-chalkboard"></i> Daftar Kelas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="trainersLink" href="pelatih.php"><i
                                         class="fa fa-fw fa-user-tie"></i> Pelatih</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="facilitiesLink" href="data-master-facilities.php"><i
+                                <a class="nav-link" id="facilitiesLink" href="fasilitas.php"><i
                                         class="fa fa-fw fa-building"></i> Fasilitas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="schedulesLink" href="data-master-schedules.php"><i
+                                <a class="nav-link" id="schedulesLink" href="jadwal.php"><i
                                         class="fa fa-fw fa-calendar"></i> Jadwal</a>
                             </li>
                         </ul>
