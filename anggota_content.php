@@ -33,39 +33,15 @@ function formatTanggal($tanggal) {
     <title>Manage Members</title>
     <!-- Add Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Add scrollable table */
-        .scrollable-table-wrapper {
-            overflow-x: auto;
-            max-height: 300px; /* Set the maximum height for the scrollable table */
-            display: block;    /* Make the table body scrollable */
-        }
-
-        /* Fix the table header */
-        .scrollable-table thead th {
-            position: sticky;
-            top: 0;
-            background-color: #f8f9fa; /* Ensure the header background remains */
-            z-index: 1; /* Keep the header above the table body */
-        }
-
-        /* Set a fixed height for the card body */
-        .card-body {
-            max-height: 400px; /* Limit the height of the card */
-            overflow-y: auto;  /* Allow vertical scrolling within the card */
-        }
-
-        /* Optional: Limit the max-width of the container */
-        .container {
-            max-width: 1000px; /* Set your desired max-width here */
-        }
-    </style>
+    
 </head>
 <body>
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h4>Manage Members</h4>
+            <h4>Daftar Anggota</h4>
+            <a href="tambah-anggota.php" class="btn btn-primary btn-sm">Tambah Anggota</a>
+            <!-- Button untuk menambah anggota -->
         </div>
         <div class="card-body">
             <!-- Tabel daftar anggota dengan scroll -->
@@ -105,8 +81,7 @@ function formatTanggal($tanggal) {
                 </table>
             </div>
 
-            <!-- Button untuk menambah anggota -->
-            <a href="tambah-anggota.php" class="btn btn-primary mt-3">Add New Member</a>
+            
         </div>
     </div>
 </div>

@@ -11,15 +11,15 @@ $result = $pdo->query($query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Packages</title>
+    <title>Daftar Paket Member</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h4>Membership Packages</h4>
-            <a href="tambah-paket.php" class="btn btn-primary btn-sm">Add New Package</a>
+            <h4>Daftar Paket Member</h4>
+            <a href="tambah-paket.php" class="btn btn-primary btn-sm">Tambah Paket</a>
         </div>
         <div class="card-body">
             <table class="table table-bordered">

@@ -21,15 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hari = $_POST['hari'];
     $jam_mulai = $_POST['jam_mulai'];
     $jam_selesai = $_POST['jam_selesai'];
-    $tanggal_mulai = $_POST['tanggal_mulai'];
-    $tanggal_selesai = $_POST['tanggal_selesai'];
-
     // Update jadwal kelas
     $query = "UPDATE jadwal_kelas 
-              SET id_kelas = ?, hari = ?, jam_mulai = ?, jam_selesai = ?, tanggal_mulai = ?, tanggal_selesai = ?, updated_at = NOW() 
+              SET id_kelas = ?, hari = ?, jam_mulai = ?, jam_selesai = ?, updated_at = NOW() 
               WHERE id_jadwal_kelas = ?";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$id_kelas, $hari, $jam_mulai, $jam_selesai, $tanggal_mulai, $tanggal_selesai, $id_jadwal_kelas]);
+    $stmt->execute([$id_kelas, $hari, $jam_mulai, $jam_selesai, $id_jadwal_kelas]);
 
     // Redirect ke halaman jadwal kelas setelah update
     header("Location: jadwal-kelas.php");
@@ -83,14 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="jam_selesai">Jam Selesai</label>
                     <input type="time" class="form-control" name="jam_selesai" value="<?php echo $row['jam_selesai']; ?>" required>
                 </div>
-                <div class="form-group">
-                    <label for="tanggal_mulai">Tanggal Mulai</label>
-                    <input type="date" class="form-control" name="tanggal_mulai" value="<?php echo $row['tanggal_mulai']; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="tanggal_selesai">Tanggal Selesai</label>
-                    <input type="date" class="form-control" name="tanggal_selesai" value="<?php echo $row['tanggal_selesai']; ?>">
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Update Jadwal Kelas</button>
             </form>
         </div>

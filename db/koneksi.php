@@ -1,7 +1,7 @@
 <?php
 // Koneksi ke database
 $host = 'localhost';
-$dbname = 'coeg'; // Ganti dengan nama database Anda
+$dbname = 'uas_gym'; // Ganti dengan nama database Anda
 $username = 'root';
 $password = ''; // Ganti dengan password jika diperlukan
 

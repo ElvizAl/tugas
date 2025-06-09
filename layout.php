@@ -23,6 +23,9 @@
             color: white;
         }
 
+        .navbar-brand {
+            color: black;
+        }
         .dashboard-header .navbar {
             position: fixed;
             top: 0;
@@ -88,38 +91,68 @@
                                 <a class="nav-link" id="anggotaLink" href="anggota.php"><i
                                         class="fa fa-fw fa-users"></i> Anggota</a>
                             </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" id="trainersLink" href="pelatih.php"><i
+                                        class="fa fa-fw fa-user-circle"></i> Pelatih</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="facilitiesLink" href="fasilitas.php"><i
+                                        class="fa fa-fw fa-suitcase"></i> Fasilitas</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="packagesLink" href="paket.php"><i
                                         class="fa fa-fw fa-box"></i> Paket</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="packagesLink" href="keanggotaan.php"><i
-                                        class="fa fa-fw fa-box"></i> Daftar Keanggotaan</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="paymentsLink" href="pembayaran.php"><i
-                                        class="fa fa-fw fa-credit-card"></i> Pembayaran</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="classesLink" href="kelas.php"><i
-                                        class="fa fa-fw fa-chalkboard"></i> Kelas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="classesLink" href="daftar-kelas.php"><i
-                                        class="fa fa-fw fa-chalkboard"></i> Daftar Kelas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="trainersLink" href="pelatih.php"><i
-                                        class="fa fa-fw fa-user-tie"></i> Pelatih</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="facilitiesLink" href="fasilitas.php"><i
-                                        class="fa fa-fw fa-building"></i> Fasilitas</a>
+                                        class="fa fa-fw fa-address-card"></i> Daftar Keanggotaan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="schedulesLink" href="jadwal-kelas.php"><i
-                                        class="fa fa-fw fa-calendar"></i> Jadwal Kelas</a>
+                                        class="fa fa-fw fa-calendar-alt"></i> Jadwal Kelas</a>
                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" id="classesLink" href="kelas.php"><i
+                                     class="fa fa-fw fa-columns"></i> Kelas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="classesLink" href="daftar-kelas.php"><i
+                                     class="fa fa-fw fa-crosshairs"></i> Daftar Kelas</a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" id="paymentsLink" href="pembayaran.php"><i
+                                        class="fa fa-fw fa-credit-card"></i> Pembayaran</a>
+                            </li>
+                           <li class="nav-item">
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-laporan" aria-controls="submenu-laporan">
+                                    <i class="fa fa-fw fa-file-alt"></i> Data Laporan
+                                </a>
+                                <div id="submenu-laporan" class="collapse" data-parent="#navbarNav">
+                                    <ul class="nav flex-column ml-3">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="laporan-jadwal-kelas.php">📅 Jadwal Kelas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="laporan-anggota.php">🧍 Anggota</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="laporan-pembayaran.php">💳 Pembayaran</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="laporan-keanggotaan.php">📦 Keanggotaan Aktif</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="laporan-pelatih-kelas.php">🧑‍🏫 Pelatih & Kelas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="laporan-pendapatan.php">📈 Pendapatan Bulanan</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                            
                         </ul>
                     </div>
                 </nav>
@@ -152,7 +185,7 @@
                                 <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                     aria-labelledby="navbarDropdownMenuLink2">
                                     <div class="nav-user-info">
-                                        <h5 class="mb-0 text-white nav-user-name">John Abraham</h5>
+                                        <h5 class="mb-0 text-white nav-user-name">Achmad Sofyan</h5>
                                         <span class="status"></span><span class="ml-2">Available</span>
                                     </div>
                                     <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>

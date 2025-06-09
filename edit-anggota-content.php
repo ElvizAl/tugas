@@ -111,22 +111,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Edit member form -->
             <form action="edit-anggota-content.php?id=<?php echo $member['id_anggota']; ?>" method="POST">
                 <div class="form-group">
-                    <label for="full_name">Full Name</label>
+                    <label for="full_name">Nama Lengkap</label>
                     <input type="text" class="form-control" name="full_name" value="<?php echo htmlspecialchars($member['nama_lengkap']); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="gender">Gender</label>
+                    <label for="gender">Jenis Kelamin</label>
                     <select class="form-control" name="gender" required>
-                        <option value="Laki-laki" <?php echo $member['jenis_kelamin'] == 'Laki-laki' ? 'selected' : ''; ?>>Male</option>
-                        <option value="Perempuan" <?php echo $member['jenis_kelamin'] == 'Perempuan' ? 'selected' : ''; ?>>Female</option>
+                        <option value="Laki-laki" <?php echo $member['jenis_kelamin'] == 'Laki-laki' ? 'selected' : ''; ?>>Laki-laki</option>
+                        <option value="Perempuan" <?php echo $member['jenis_kelamin'] == 'Perempuan' ? 'selected' : ''; ?>>Perempuan</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="date_of_birth">Date of Birth</label>
+                    <label for="date_of_birth">Tanggal Lahir</label>
                     <input type="date" class="form-control" name="date_of_birth" value="<?php echo $member['tanggal_lahir']; ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone</label>
+                    <label for="phone">No Telepon</label>
                     <input type="text" class="form-control" name="phone" value="<?php echo htmlspecialchars($member['no_telpon']); ?>">
                 </div>
                 <div class="form-group">
@@ -134,15 +134,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="email" class="form-control" name="email" value="<?php echo htmlspecialchars($member['email']); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="address">Address</label>
+                    <label for="address">Alamat</label>
                     <textarea class="form-control" name="address"><?php echo htmlspecialchars($member['alamat']); ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="status">Member Status</label>
                     <select class="form-control" name="status">
-                        <option value="Aktif" <?php echo $member['status_anggota'] == 'Aktif' ? 'selected' : ''; ?>>Active</option>
-                        <option value="Tidak Aktif" <?php echo $member['status_anggota'] == 'Tidak Aktif' ? 'selected' : ''; ?>>Inactive</option>
-                        <option value="Suspend" <?php echo $member['status_anggota'] == 'Suspend' ? 'selected' : ''; ?>>Suspended</option>
+                        <option value="Aktif" <?php echo $member['status_anggota'] == 'Aktif' ? 'selected' : ''; ?>>Aktif</option>
+                        <option value="Tidak Aktif" <?php echo $member['status_anggota'] == 'Tidak Aktif' ? 'selected' : ''; ?>>Tidak Aktif</option>
+                        <option value="Suspend" <?php echo $member['status_anggota'] == 'Suspend' ? 'selected' : ''; ?>>Ditangguhkan</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Update Member</button>
@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="footer">
-        <a href="route/anggota.php">Back to Member List</a>
+        <a href="anggota.php">Kembali ke daftar member</a>
     </div>
 </div>
 

@@ -99,22 +99,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- Member addition form -->
                 <form action="tambah-anggota-content.php" method="POST">
                     <div class="form-group">
-                        <label for="full_name">Full Name</label>
+                        <label for="full_name">Nama Lengkap</label>
                         <input type="text" class="form-control" name="full_name" required>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Gender</label>
+                        <label for="gender">Jenis Kelamin</label>
                         <select class="form-control" name="gender" required>
-                            <option value="Laki-laki">Male</option>
-                            <option value="Perempuan">Female</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">                            <option value="Perempuan">Female</option>
+</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="date_of_birth">Date of Birth</label>
+                        <label for="date_of_birth">Tanggal Lahir</label>
                         <input type="date" class="form-control" name="date_of_birth" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone</label>
+                        <label for="phone">No Telepon</label>
                         <input type="text" class="form-control" name="phone">
                     </div>
                     <div class="form-group">
@@ -122,24 +123,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="email" class="form-control" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address">Alamat</label>
                         <textarea class="form-control" name="address"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="status">Member Status</label>
                         <select class="form-control" name="status">
-                            <option value="Aktif">Active</option>
-                            <option value="Tidak Aktif">Inactive</option>
-                            <option value="Suspend">Suspended</option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
+                            <option value="Suspend">Ditangguhkan</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Add Member</button>
+                    <button type="submit" class="btn btn-primary btn-block">Tambah Member</button>
                 </form>
             </div>
         </div>
 
         <div class="footer">
-            <a href="route/anggota.php">Back to Member List</a>
+            <a href="route/anggota.php">Kembali ke daftar member</a>
         </div>
     </div>
 

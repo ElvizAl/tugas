@@ -12,14 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hari = $_POST['hari'];
     $jam_mulai = $_POST['jam_mulai'];
     $jam_selesai = $_POST['jam_selesai'];
-    $tanggal_mulai = $_POST['tanggal_mulai'];
-    $tanggal_selesai = $_POST['tanggal_selesai'];
 
     // Insert Jadwal Kelas
-    $query = "INSERT INTO jadwal_kelas (id_kelas, hari, jam_mulai, jam_selesai, tanggal_mulai, tanggal_selesai, created_at) 
-              VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    $query = "INSERT INTO jadwal_kelas (id_kelas, hari, jam_mulai, jam_selesai, created_at) 
+              VALUES (?, ?, ?, ?, NOW())";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$id_kelas, $hari, $jam_mulai, $jam_selesai, $tanggal_mulai, $tanggal_selesai]);
+    $stmt->execute([$id_kelas, $hari, $jam_mulai, $jam_selesai]);
 
     // Redirect ke halaman jadwal kelas setelah menambah
     header("Location: jadwal-kelas.php");
@@ -71,14 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="jam_selesai">Jam Selesai</label>
                     <input type="time" class="form-control" name="jam_selesai" required>
                 </div>
-                <div class="form-group">
-                    <label for="tanggal_mulai">Tanggal Mulai</label>
-                    <input type="date" class="form-control" name="tanggal_mulai" required>
-                </div>
-                <div class="form-group">
-                    <label for="tanggal_selesai">Tanggal Selesai</label>
-                    <input type="date" class="form-control" name="tanggal_selesai">
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Tambah Jadwal Kelas</button>
             </form>
         </div>
