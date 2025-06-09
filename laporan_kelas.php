@@ -1,7 +1,7 @@
 <!-- anggota.php -->
 <?php
 // Define the content file for the "Anggota" page
-$page_content = 'laporan_content.php';
+$page_content = 'laporan_kelas_content.php';
 
 // Include the layout file which includes the common layout structure
 include('layout.php');

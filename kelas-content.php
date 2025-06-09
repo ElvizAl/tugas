@@ -16,6 +16,12 @@ $result = $pdo->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Kelas</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+         thead th {
+    background-color: rgb(124, 188, 255) !important;
+  }
+    </style>
+</head>
 </head>
 <body>
 <div class="container mt-5">
@@ -48,7 +54,7 @@ $result = $pdo->query($query);
                             <td><?php echo $row['nama_pelatih']; ?></td>
                             <td><?php echo $row['nama_fasilitas']; ?></td>
                             <td><?php echo $row['kapasitas_maksimal']; ?></td>
-                            <td><?php echo $row['harga_per_sesi']; ?></td>
+                            <td>Rp <?= number_format($row['harga_per_sesi'], 0, ',', '.') ?></td>
                             <td><?php echo $row['durasi_menit']; ?></td>
                             <td><?php echo $row['tingkat_kesulitan']; ?></td>
                             <td><?php echo $row['status_kelas']; ?></td>

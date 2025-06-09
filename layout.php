@@ -1,3 +1,27 @@
+<?php
+session_start();
+require 'db/koneksi.php'; // koneksi database
+
+// Pastikan user sudah login
+if (!isset($_SESSION['id_pengguna'])) {
+    header("Location: index.php");
+    exit;
+}
+
+$id_pengguna = $_SESSION['id_pengguna'];
+
+// Ambil data user dari database dengan PDO
+$stmt = $pdo->prepare("SELECT * FROM pengguna WHERE id_pengguna = :id");
+$stmt->execute(['id' => $id_pengguna]);
+$user = $stmt->fetch();
+
+if (!$user) {
+    // User tidak ditemukan, logout
+    header("Location: logout.php");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -19,7 +43,7 @@
     <style>
         /* Menambahkan kelas aktif pada link */
         .nav-link.active {
-            background-color: #007bff;
+            background-color:rgb(0, 0, 0);
             color: white;
         }
 
@@ -32,18 +56,34 @@
             left: 0;
             right: 0;
             z-index: 1030;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(28, 2, 59, 0.69);
         }
 
         .nav-left-sidebar {
-            width: 250px;
-            height: 100%;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            z-index: 1029;
-            /* Memastikan sidebar di atas konten */
-        }
+  width: 250px;
+  height: calc(100vh - 70px); /* Sesuaikan dengan tinggi navbar/header atas */
+  position: fixed;
+  top: 70px;
+  left: 0;
+  z-index: 1029;
+  overflow-y: auto; /* Aktifkan scroll */
+  background-color:rgb(28, 2, 59) /* jika sidebar dark */
+}
+
+.nav-left-sidebar .menu-list {
+  padding-bottom: 20px; /* Biar scroll tidak mentok */
+}
+
+/* Scrollbar styling opsional */
+.nav-left-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.nav-left-sidebar::-webkit-scrollbar-thumb {
+  background-color:rgba(28, 2, 59, 0.69);
+  border-radius: 3px;
+}
+
 
         /* CSS inline untuk memastikan footer di bawah */
         .dashboard-main-wrapper {
@@ -75,7 +115,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -84,7 +124,7 @@
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider">Menu</li>
                             <li class="nav-item">
-                                <a class="nav-link" id="dashboardLink" href="index.php"><i
+                                <a class="nav-link" id="dashboardLink" href="dashboard.php"><i
                                         class="fa fa-fw fa-tachometer-alt"></i> Dashboard</a>
                             </li>
                             <li class="nav-item">
@@ -131,22 +171,16 @@
                                 <div id="submenu-laporan" class="collapse" data-parent="#navbarNav">
                                     <ul class="nav flex-column ml-3">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="laporan-jadwal-kelas.php">📅 Jadwal Kelas</a>
+                                            <a class="nav-link" href="laporan_anggota.php">Laporan Anggota</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="laporan-anggota.php">🧍 Anggota</a>
+                                            <a class="nav-link" href="laporan_pelatih.php">Laporan Pelatih</a>
+                                        </li>
+                                         <li class="nav-item">
+                                            <a class="nav-link" href="laporan_kelas.php">Laporan Kelas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="laporan-pembayaran.php">💳 Pembayaran</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="laporan-keanggotaan.php">📦 Keanggotaan Aktif</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="laporan-pelatih-kelas.php">🧑‍🏫 Pelatih & Kelas</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="laporan-pendapatan.php">📈 Pendapatan Bulanan</a>
+                                            <a class="nav-link" href="laporan_pendapatan.php">Pendapatan Bulanan</a>
                                         </li>
                                         
                                     </ul>
@@ -164,7 +198,7 @@
             <!-- Dashboard Header -->
             <div class="dashboard-header">
                 <nav class="navbar navbar-expand-lg bg-white">
-                    <a class="navbar-brand" href="index.php">Gym Management</a>
+                    <a class="navbar-brand" href="index.php" style="color: black; text-decoration: none;">Gym Management</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -180,17 +214,15 @@
                             <li class="nav-item dropdown nav-user">
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle">
+                                    <img src="assets/images/gym.png" alt="" class="user-avatar-md rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                     aria-labelledby="navbarDropdownMenuLink2">
                                     <div class="nav-user-info">
-                                        <h5 class="mb-0 text-white nav-user-name">Achmad Sofyan</h5>
-                                        <span class="status"></span><span class="ml-2">Available</span>
+                                        <h5 class="mb-0 text-white nav-user-name">Halo, <?= htmlspecialchars($user['nama_lengkap']); ?></h5>
                                     </div>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                    
+                                    <a class="dropdown-item" href="logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                 </div>
                             </li>
                         </ul>

@@ -13,6 +13,12 @@ $result = $pdo->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Pelatih</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+         thead th {
+    background-color: rgb(124, 188, 255) !important;
+  }
+    </style>
+</head>
 </head>
 <body>
 <div class="container mt-5">
@@ -43,7 +49,7 @@ $result = $pdo->query($query);
                             <td><?php echo $row['no_telpon']; ?></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['alamat']; ?></td>
-                            <td><?php echo $row['gaji']; ?></td>
+                            <td>Rp <?= number_format($row['gaji'], 0, ',', '.') ?></td>
                             <td><?php echo $row['status_pelatih']; ?></td>
                             <td>
                                 <a href="edit-pelatih.php?id=<?php echo $row['id_pelatih']; ?>" class="btn btn-warning btn-sm">Edit</a>
@@ -57,8 +63,5 @@ $result = $pdo->query($query);
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
